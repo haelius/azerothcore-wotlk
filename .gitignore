@@ -17,13 +17,6 @@
 /env/dist/*
 !/env/dist/.gitkeep
 /env/user/*
-/env/docker/*
-!/env/docker/bin/.gitkeep
-!/env/docker/data/.gitkeep
-!/env/docker/etc/
-/env/docker/etc/*
-!/env/docker/etc/*.conf.dockerdist
-!/env/docker/logs/.gitkeep
 /.env*
 /apps/joiner
 /deps/deno
@@ -31,9 +24,13 @@
 /src/server/scripts/Custom/*
 !/src/server/scripts/Custom/README.md
 
-/docker-compose.override.yml
+/*.override.yml
+/*.override.yaml
 
 !.gitkeep
+
+# default build directory if not specified by CMAKE configuration
+/out/*
 
 #
 #Generic
@@ -69,6 +66,7 @@ nbproject/
 .idea
 cmake-build-*/*
 coverage-report/
+.vs
 
 #
 # Eclipse

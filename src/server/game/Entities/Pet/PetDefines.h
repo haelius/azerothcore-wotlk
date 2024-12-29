@@ -134,7 +134,9 @@ enum NPCEntries
 enum PetScalingSpells
 {
     SPELL_PET_AVOIDANCE                 = 32233,
+    SPELL_PET_SCALING_MASTER_06         = 67561, // Serverside - Pet Scaling - Master Spell 06 - Spell Hit, Expertise, Spell Penetration
 
+    // Hunter
     SPELL_HUNTER_PET_SCALING_01         = 34902,
     SPELL_HUNTER_PET_SCALING_02         = 34903,
     SPELL_HUNTER_PET_SCALING_03         = 34904,
@@ -147,6 +149,7 @@ enum PetScalingSpells
     SPELL_WARLOCK_PET_SCALING_04        = 34958,
     SPELL_WARLOCK_PET_SCALING_05        = 61013, // Hit / Expertise
     SPELL_GLYPH_OF_FELGUARD             = 56246,
+    SPELL_GLYPH_OF_VOIDWALKER           = 56247,
     SPELL_INFERNAL_SCALING_01           = 36186,
     SPELL_INFERNAL_SCALING_02           = 36188,
     SPELL_INFERNAL_SCALING_03           = 36189,
@@ -189,9 +192,11 @@ enum PetScalingSpells
     // Death Knight
     SPELL_ORC_RACIAL_COMMAND_DK         = 65221,
     SPELL_NIGHT_OF_THE_DEAD_AVOIDANCE   = 62137,
-    SPELL_DK_PET_SCALING_01             = 51996,
-    SPELL_DK_PET_SCALING_02             = 54566,
-    SPELL_DK_PET_SCALING_03             = 61697
+    SPELL_DK_PET_SCALING_01             = 54566,
+    SPELL_DK_PET_SCALING_02             = 51996,
+    SPELL_DK_PET_SCALING_03             = 61697,
+    SPELL_DK_AVOIDANCE                  = 65220,
+    SPELL_DK_ARMY_OF_THE_DEAD_PASSIVE   = 49040,
 };
 
 #define PET_FOLLOW_DIST  1.0f

@@ -15,7 +15,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ScriptMgr.h"
+#include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "auchenai_crypts.h"
 
@@ -74,13 +74,16 @@ struct boss_exarch_maladaar : public BossAI
         _Reset();
         ScheduleHealthCheckEvent(25, [&] {
             Talk(SAY_SUMMON);
-            DoCastSelf(SPELL_SUMMON_AVATAR);
+            scheduler.Schedule(100ms, [this](TaskContext)
+            {
+                DoCastSelf(SPELL_SUMMON_AVATAR);
+            });
         });
     }
 
     void MoveInLineOfSight(Unit* who) override
     {
-        if (!_talked && who->GetTypeId() == TYPEID_PLAYER && me->IsWithinDistInMap(who, 150.0f))
+        if (!_talked && who->IsPlayer() && me->IsWithinDistInMap(who, 150.0f))
         {
             _talked = true;
             Talk(SAY_INTRO);
@@ -131,6 +134,11 @@ struct boss_exarch_maladaar : public BossAI
         Talk(SAY_DEATH);
         me->SummonCreature(19412, 0.0f, 0.0f, 0.0f, 0.0f, TEMPSUMMON_TIMED_DESPAWN, 600000);
         _JustDied();
+    }
+
+    void JustSummoned(Creature* /*creature*/) override
+    {
+        // Override JustSummoned() so we don't despawn the Avatar.
     }
 
     void UpdateAI(uint32 diff) override
